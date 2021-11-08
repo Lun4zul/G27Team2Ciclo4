@@ -25,11 +25,13 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-                        <input type="password" class="form-control" placeholder="Contraseña"
+                        <input type="password" [type]="showPass ? 'password':' text'"
+						class="form-control" placeholder="Contraseña"
                         aria-describedby="basic-addon1" [(ngModel)]="pass"  >
-                        <button class="btn btn-primary" type="button" 
-                            onmousedown="showPassword()" onmouseup="hidePassword()"> 
-                            <span class="fa fa-eye-slash show-password"></span>
+
+                        <button class="show" type="button" 
+                            (click)="showPass = !showPass"> 
+                        <span class="fa fa-eye-slash show-password"></span>
                         </button>
 					</div>
 					<br>

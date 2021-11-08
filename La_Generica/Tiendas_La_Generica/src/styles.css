@@ -58,6 +58,12 @@ box-shadow: 0 0 0 0 !important;
 
 }
 
+.show{
+  background-color:white ;
+  border: 0;
+  outline: white;
+}
+
 .remember{
 color: white;
 }

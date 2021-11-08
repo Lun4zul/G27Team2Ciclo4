@@ -16,7 +16,7 @@ export class LoginComponent  {
 
   user:string="";
   pass:string="";
-
+  showPass = true;
   correcto:number=-1;
   comparar()  {
     if (this.user===this.user_correcto){
