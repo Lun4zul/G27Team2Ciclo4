@@ -3,7 +3,7 @@ package com.equipo2.misiontic2022.tiendasgenericas.TiendaLaGenerica.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "usuarios")
+@Document(collection = "productos")
 public class Producto {
 
 	@Id

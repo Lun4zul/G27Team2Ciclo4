@@ -1,0 +1,35 @@
+<div class=" content">
+
+  <label for="formFileLg " class="form-label">Seleccionar
+    archivo CSV con el inventario de productos</label>
+  <div class="text-center">
+    <input class="form-control" type="file" (change)="onChange($event)"
+      placeholder="Inserte el archivo aqui">
+
+    <button (click)="onUpload()" class="btn btn-success btn-sm fas fa-upload mt-2">
+      Subir Archivo
+    </button>
+    {{recibido}}
+  </div>
+  
+  <div class="container">
+    <h3 *ngFor="let dato of resultados; let i = index">
+      Dato {{i}} obtuvo codigo {{dato[0]}}
+    </h3>
+  </div>
+
+
+  <table class="compact nowrap table table-dark table-hover" datatable [dtOptions]="dtOptions"
+    [dtTrigger]="dtTrigger">
+    <tbody>
+      <tr *ngFor="let dato of contenido" class="">
+        <td>{{dato.codigoproducto}}</td>
+        <td>{{dato.nombreproducto}}</td>
+        <td>{{dato.nitproveedor}}</td>
+        <td>{{dato.preciocompra}}</td>
+        <td>{{dato.ivacompra}}</td>
+        <td>{{dato.precioventa}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
