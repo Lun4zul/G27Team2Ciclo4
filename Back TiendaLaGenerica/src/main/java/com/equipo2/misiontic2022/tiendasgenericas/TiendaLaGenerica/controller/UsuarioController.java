@@ -86,6 +86,8 @@ public class UsuarioController {
 	      Usuario _usuario = usuarioData.get();
 	      _usuario.setUsername(user.getUsername());
 	      _usuario.setPassword(user.getPassword());
+	      _usuario.setNombreusuario(user.getNombreusuario());
+	      _usuario.setEmailusuario(user.getEmailusuario());
 	      return new ResponseEntity<>(usuarioRepository.save(_usuario), HttpStatus.OK);
 	    } else {
 	      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
