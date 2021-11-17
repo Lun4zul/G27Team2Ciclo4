@@ -20,6 +20,7 @@ import { VentasComponent } from './pages/ventas/ventas.component';
 import { ReportesComponent } from './pages/reportes/reportes.component';
 import { ConsolidacionComponent } from './pages/consolidacion/consolidacion.component';
 
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -33,7 +34,7 @@ import { ConsolidacionComponent } from './pages/consolidacion/consolidacion.comp
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    DataTablesModule
+    DataTablesModule,
   ],
   
   declarations: [AppComponent, AdminLayoutComponent, LoginComponent, ProductosComponent, ClientesComponent, VentasComponent, ReportesComponent, ConsolidacionComponent],

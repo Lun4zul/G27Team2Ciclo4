@@ -11,6 +11,9 @@ export class FileUploadService {
   // API url
   baseApiUrl = "http://localhost:8080/api/productos";
 
+  borrar:any;
+  codigoRespuesta!: number;
+
   //inicializando objeto http
   constructor(private http: HttpClient) { }
 
@@ -19,6 +22,15 @@ export class FileUploadService {
 
   // Retorna un objeto observable
   upload(file: any): Promise<any[]> {
+
+    this.http.delete(this.baseApiUrl,
+      {observe:'response'}
+      ).subscribe(response=>{
+        this.codigoRespuesta=response.status;
+        this.borrar=response;
+        console.log(this.codigoRespuesta);
+      });
+
     return new Promise<any[]>((resolve, reject) => {
       //leyendo el contenido
       var reader = new FileReader();
@@ -28,7 +40,13 @@ export class FileUploadService {
 
         let separados = lines.split("\n");
 
+        let comparar: string[]
+
         for (let lineaactual of separados) {
+
+          if (separados == comparar) {
+						continue;
+					}
           lineaactual.replace(";", ",");
           let columnas = lineaactual.split(",", 6);
           this.http.post(

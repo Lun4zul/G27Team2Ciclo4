@@ -47,12 +47,12 @@ export class ProductosComponent implements OnInit {
     this.dtTrigger.unsubscribe();
   }
 
-
-
   ///////////////// METODOS ANGULAR /////////////////////////////
 
   //FUNCIÓN DE EJECUCIÓN ANTES DE LA CARGA DE LA PAGINA
+
   ngOnInit(): void {
+
     //utilizando el servicio en la url
     this.res = this.objetohttp.get(this.urlapiGET).pipe(catchError(this.handleError));
 
