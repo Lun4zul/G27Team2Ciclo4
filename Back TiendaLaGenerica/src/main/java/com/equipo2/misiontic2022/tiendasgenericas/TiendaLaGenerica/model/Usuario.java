@@ -9,19 +9,14 @@ public class Usuario {
 	@Id
 	private String id;
 	
-	private String username;
-	
-	private String password;
-	
-	private String nombreusuario;
-	
-	private String emailusuario;
-	
+	private String username;	
+	private String password;	
+	private String nombreusuario;	
+	private String emailusuario;	
 	
 	public Usuario() {
 		
-	}
-	
+	}	
 	
 	public Usuario(String username, String password, String nombreusuario, String emailusuario) {
 		super();
@@ -30,8 +25,6 @@ public class Usuario {
 		this.nombreusuario = nombreusuario;
 		this.emailusuario = emailusuario;
 	}
-
-
 
 	public String getId() {
 		return id;
@@ -73,9 +66,4 @@ public class Usuario {
 		this.emailusuario = emailusuario;
 	}
 	
-	
-	
-	
-	
-
 }
