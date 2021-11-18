@@ -19,6 +19,9 @@ import { ClientesComponent } from './pages/clientes/clientes.component';
 import { VentasComponent } from './pages/ventas/ventas.component';
 import { ReportesComponent } from './pages/reportes/reportes.component';
 import { ConsolidacionComponent } from './pages/consolidacion/consolidacion.component';
+import { ClientesActualizarComponent } from './pages/clientes-actualizar/clientes-actualizar.component';
+import { ClientesBorrarComponent } from './pages/clientes-borrar/clientes-borrar.component';
+import { ClientesConsultarComponent } from './pages/clientes-consultar/clientes-consultar.component';
 
 
 @NgModule({
@@ -37,7 +40,7 @@ import { ConsolidacionComponent } from './pages/consolidacion/consolidacion.comp
     DataTablesModule,
   ],
   
-  declarations: [AppComponent, AdminLayoutComponent, LoginComponent, ProductosComponent, ClientesComponent, VentasComponent, ReportesComponent, ConsolidacionComponent],
+  declarations: [AppComponent, AdminLayoutComponent, LoginComponent, ProductosComponent, ClientesComponent, VentasComponent, ReportesComponent, ConsolidacionComponent, ClientesActualizarComponent, ClientesBorrarComponent, ClientesConsultarComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
