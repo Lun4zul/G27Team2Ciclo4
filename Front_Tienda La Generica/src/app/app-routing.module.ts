@@ -4,14 +4,33 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { ClientesActualizarComponent } from './pages/clientes-actualizar/clientes-actualizar.component';
+import { ClientesBorrarComponent } from './pages/clientes-borrar/clientes-borrar.component';
+import { ClientesConsultarComponent } from './pages/clientes-consultar/clientes-consultar.component';
 
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: 'login',
-    pathMatch: 'full'
   },
+  {
+    path: 'clientes',
+    redirectTo: 'clientes',
+  },
+  {
+    path:"clientes-actualizar",
+    component:ClientesActualizarComponent
+  },
+  {
+    path:"clientes-borrar",
+    component:ClientesBorrarComponent
+  },
+  {
+    path:"clientes-consultar",
+    component:ClientesConsultarComponent
+  },
+  
   {
     path: '',
     component: AdminLayoutComponent,

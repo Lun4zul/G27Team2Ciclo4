@@ -61,17 +61,17 @@
             <div class="form-group">
                 <button class="btn btn-success" (click)="postData()" >
                     Crear Nuevo Cliente
-                </button>{{Enviar}}
+                </button >{{Enviar}}
             </div>
         </form>
       </div>
     <div class="column">
         <div id="flex-child-element">
 
-            <button type="button" class="btn btn-info btn-lg">Crear Cliente</button>
-            <button type="button" class="btn btn-warning btn-lg">Consultar Cliente</button>
-            <button type="button" class="btn btn-info btn-lg">Actualizar Cliente</button>
-            <button type="button" class="btn btn-danger btn-lg">Eliminar Cliente</button>
+            <button type="button" class="btn btn-info btn-lg" [routerLink]="'/clientes'">Crear Cliente</button>
+            <button type="button" class="btn btn-warning btn-lg" [routerLink]="'/clientes-consultar'">Consultar Cliente</button>
+            <button type="button" class="btn btn-info btn-lg"[routerLink]="'/clientes-actualizar'">Actualizar Cliente</button>
+            <button type="button" class="btn btn-danger btn-lg" [routerLink]="'/clientes-borrar'">Eliminar Cliente</button>
             
 
         </div>

@@ -1,17 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+
+
+
 @Component({
   selector: 'app-clientes',
   templateUrl: './clientes.component.html',
   styleUrls: ['./clientes.component.scss']
 })
+
 export class ClientesComponent implements OnInit {
+
 
 res:any;
 contenido:any;  
 urlapi:string="";
 
-constructor(private objetohttp:HttpClient){}
+constructor(private objetohttp:HttpClient, router:Router){}
+
+
+
+btnClick= function () {
+  this.router.navigateByUrl("");
+ 
+}
+
+
 ngOnInit(){
   this.res=this.objetohttp.get(this.urlapi);
   this.res.subscribe((data:any[]) => {
@@ -44,5 +59,8 @@ postData()  {
   ).subscribe(response=>{
     this.Enviar=response.status;
   });
+
  }
-}
+
+ 
+ }
