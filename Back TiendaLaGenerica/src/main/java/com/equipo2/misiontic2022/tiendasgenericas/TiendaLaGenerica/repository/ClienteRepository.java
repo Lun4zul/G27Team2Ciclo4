@@ -8,5 +8,6 @@ import com.equipo2.misiontic2022.tiendasgenericas.TiendaLaGenerica.model.Cliente
 public interface ClienteRepository extends MongoRepository<Cliente, String>{
 	
    List<Cliente> findByCedulacliente(Integer cedulacliente);
+   List<Cliente> deleteByCedulacliente(Integer cedulacliente);
    
 }
