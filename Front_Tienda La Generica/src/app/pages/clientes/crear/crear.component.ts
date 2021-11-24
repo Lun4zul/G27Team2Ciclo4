@@ -14,11 +14,12 @@ export class CrearComponent {
   urlapi: string = "http://localhost:8080/api/clientes/";
   codigoRespuesta!: number;
   nombre!: string;
-  cedula!: number;
+  cedula!: string;
   email!: string;
   telefono!: string;
   direccion!: string;
   correcto!: number;
+  contenido: any;
 
   constructor(private toastr: ToastrService, private router: Router,
     private read: CrearService) {}
@@ -33,12 +34,11 @@ export class CrearComponent {
     }
     console.log(body)
 
-    this.read.codigoRespuesta(this.urlapi, body).subscribe(data => {
-      this.codigoRespuesta = data.status;
-      console.log(data.status)
+    this.read.crear(this.urlapi, body).subscribe(data => {
+      this.contenido = data;
+      console.log(this.contenido);
       this.comparar();
     });
-    console.log(this.codigoRespuesta);
   }
 
   comparar() {
