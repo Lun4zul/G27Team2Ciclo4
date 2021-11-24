@@ -12,6 +12,10 @@ import { ClientesComponent } from 'src/app/pages/clientes/clientes.component';
 import { VentasComponent } from 'src/app/pages/ventas/ventas.component';
 import { ReportesComponent } from 'src/app/pages/reportes/reportes.component';
 import { ConsolidacionComponent } from 'src/app/pages/consolidacion/consolidacion.component';
+import { ActualizarComponent } from 'src/app/pages/clientes/actualizar/actualizar.component';
+import { CrearComponent } from 'src/app/pages/clientes/crear/crear.component';
+import { EliminarComponent } from 'src/app/pages/clientes/eliminar/eliminar.component';
+import { ConsultarComponent } from 'src/app/pages/clientes/consultar/consultar.component';
 
 export const AdminLayoutRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -25,5 +29,9 @@ export const AdminLayoutRoutes: Routes = [
   { path: 'notifications', component: NotificationsComponent },
   { path: 'user', component: UserComponent },
   { path: 'tables', component: TablesComponent },
-  { path: 'typography', component: TypographyComponent }
+  { path: 'typography', component: TypographyComponent },
+  { path:"clientes/actualizar", component: ActualizarComponent},
+  { path:"clientes/eliminar", component: EliminarComponent},
+  { path:"clientes/consultar", component: ConsultarComponent},
+  { path:"clientes/agregar", component:CrearComponent}
 ];
