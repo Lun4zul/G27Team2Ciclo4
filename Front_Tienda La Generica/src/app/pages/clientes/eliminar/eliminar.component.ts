@@ -13,19 +13,19 @@ export class EliminarComponent{
   
   urlapi: string = "http://localhost:8080/api/clientes/";
   codigoRespuesta!: number;
-  cedula!: number;
+  cedula!: string;
   correcto!: number;
+  contenido: any;
 
   constructor(private toastr: ToastrService, private router: Router,
     private read: EliminarService) {}
 
   deleteDato() {
-    this.read.codigoRespuesta(this.urlapi, this.cedula).subscribe(data => {
-      this.codigoRespuesta = data.status;
-      console.log(data.status)
+    this.read.borrar(this.urlapi, this.cedula).subscribe(data => {
+      this.contenido = data;
+      console.log(this.contenido)
       this.comparar();
     });
-    console.log(this.codigoRespuesta);
   }
 
   comparar() {

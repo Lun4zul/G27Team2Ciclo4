@@ -9,11 +9,11 @@ export class EliminarService {
   
   constructor(private http: HttpClient) { }
 
-  borrar(urlapi: string, cedula: number) {
+  borrar(urlapi: string, cedula: string) {
     return this.http.delete(`${urlapi}${cedula}`);
   }
   
-  codigoRespuesta(urlapi: string, cedula: number) {
+  codigoRespuesta(urlapi: string, cedula: string) {
     return this.http.delete(`${urlapi}${cedula}`, {observe: 'response'});
   }
 }

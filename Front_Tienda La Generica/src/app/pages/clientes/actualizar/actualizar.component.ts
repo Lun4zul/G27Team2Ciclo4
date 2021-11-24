@@ -17,11 +17,12 @@ export class ActualizarComponent {
   urlapi: string = "http://localhost:8080/api/clientes/";
   codigoRespuesta!: number;
   nombre!: string;
-  cedula!: number;
+  cedula!: string;
   email!: string;
   telefono!: string;
   direccion!: string;
   correcto!: number;
+  contenido: any;
 
   constructor(private toastr: ToastrService, private router: Router,
     private read: ActualizarService) { }
@@ -36,12 +37,11 @@ export class ActualizarComponent {
     }
     console.log(body)
 
-    this.read.codigoRespuesta(this.urlapi, this.cedula, body).subscribe(data => {
-      this.codigoRespuesta = data.status;
-      console.log(data.status)
+    this.read.actualizar(this.urlapi, this.cedula, body).subscribe(data => {
+      this.contenido = data;
+      console.log(this.contenido);
       this.comparar();
     });
-    console.log(this.codigoRespuesta);
   }
 
   comparar() {
