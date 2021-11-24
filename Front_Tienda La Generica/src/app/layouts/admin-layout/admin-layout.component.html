@@ -1,10 +1,10 @@
 <div class="wrapper">
-  <div class="sidebar" *ngIf="mostrar == false">
+  <div class="sidebar visually-hidden" id="lateral">
     <app-sidebar></app-sidebar>
   </div>
   <div class="main-panel">
     <div class="row">
-      <app-navbar></app-navbar>
+      <app-navbar id="arriba" class="visually-hidden"></app-navbar>
     </div>
     <div class="row justify-content-center m-2">
       <div class="col-12 align-items-center p-2">
@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="row relative-bottom">
-      <app-footer></app-footer>
+      <app-footer id="abajo" class="visually-hidden"></app-footer>
     </div>
   </div>
 </div>
