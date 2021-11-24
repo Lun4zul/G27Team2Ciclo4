@@ -6,6 +6,9 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./admin-layout.component.scss"]
 })
 export class AdminLayoutComponent implements OnInit {
+
+  mostrar: boolean = false;
+
   public sidebarColor: string = "red";
 
   constructor() {}
@@ -22,6 +25,7 @@ export class AdminLayoutComponent implements OnInit {
         mainPanel.setAttribute('data',color);
     }
   }
+
   changeDashboardColor(color){
     var body = document.getElementsByTagName('body')[0];
     if (body && color === 'white-content') {
@@ -31,5 +35,10 @@ export class AdminLayoutComponent implements OnInit {
       body.classList.remove('white-content');
     }
   }
+
+  funcion_mostrar() {  
+    this.mostrar = !this.mostrar ;
+  }
+
   ngOnInit() {}
 }

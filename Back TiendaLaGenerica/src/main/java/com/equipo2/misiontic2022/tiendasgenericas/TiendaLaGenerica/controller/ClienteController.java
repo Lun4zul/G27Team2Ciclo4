@@ -71,8 +71,11 @@ public class ClienteController {
 	  @PostMapping("/clientes")
 	  public ResponseEntity<Cliente> createCliente(@RequestBody Cliente cedula) {
 	    try {
-	      Cliente _cliente = clienteRepository.save(new Cliente(cedula.getCedulacliente(),
-	    		  cedula.getDireccioncliente(),cedula.getNombrecliente(),cedula.getEmailcliente(),
+	      Cliente _cliente = clienteRepository.save(new Cliente(
+	    		  cedula.getCedulacliente(),
+	    		  cedula.getDireccioncliente(),	    		  
+	    		  cedula.getEmailcliente(),
+	    		  cedula.getNombrecliente(),
 	    		  cedula.getTelefonocliente()));
 	      return new ResponseEntity<>(_cliente, HttpStatus.CREATED);
 	    } catch (Exception e) {
@@ -97,6 +100,8 @@ public class ClienteController {
 	      _cliente.setDireccioncliente(cedula.getDireccioncliente());
 	      _cliente.setNombrecliente(cedula.getNombrecliente());
 	      _cliente.setEmailcliente(cedula.getEmailcliente());
+	      _cliente.setTelefonocliente(cedula.getTelefonocliente());
+	      
 	      return new ResponseEntity<>(clienteRepository.save(_cliente), HttpStatus.OK);
 	    } else {
 	      return new ResponseEntity<>(HttpStatus.NOT_FOUND);

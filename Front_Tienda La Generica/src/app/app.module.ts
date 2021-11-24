@@ -5,11 +5,10 @@ import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
 import { ToastrModule } from 'ngx-toastr';
 import { DataTablesModule } from 'angular-datatables';
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { AppComponent } from "./app.component";
 import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
-
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { ComponentsModule } from "./components/components.module";
@@ -19,10 +18,6 @@ import { ClientesComponent } from './pages/clientes/clientes.component';
 import { VentasComponent } from './pages/ventas/ventas.component';
 import { ReportesComponent } from './pages/reportes/reportes.component';
 import { ConsolidacionComponent } from './pages/consolidacion/consolidacion.component';
-import { ClientesActualizarComponent } from './pages/clientes-actualizar/clientes-actualizar.component';
-import { ClientesBorrarComponent } from './pages/clientes-borrar/clientes-borrar.component';
-import { ClientesConsultarComponent } from './pages/clientes-consultar/clientes-consultar.component';
-
 
 @NgModule({
   imports: [
@@ -40,7 +35,17 @@ import { ClientesConsultarComponent } from './pages/clientes-consultar/clientes-
     DataTablesModule,
   ],
   
-  declarations: [AppComponent, AdminLayoutComponent, LoginComponent, ProductosComponent, ClientesComponent, VentasComponent, ReportesComponent, ConsolidacionComponent, ClientesActualizarComponent, ClientesBorrarComponent, ClientesConsultarComponent],
+  declarations: [
+    AppComponent,
+    AdminLayoutComponent, 
+    LoginComponent, 
+    ProductosComponent, 
+    ClientesComponent, 
+    VentasComponent, 
+    ReportesComponent, 
+    ConsolidacionComponent
+  ],
+    
   providers: [],
   bootstrap: [AppComponent]
 })
