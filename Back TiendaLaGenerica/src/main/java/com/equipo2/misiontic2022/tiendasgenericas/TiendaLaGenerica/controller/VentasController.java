@@ -48,8 +48,28 @@ public class VentasController {
 	    }
 	  }
 	  
+	 
+		@GetMapping("/ventas/consecutivo")
+		public ResponseEntity<Long> getVentaConsecutivo() {
+			try {
+			ArrayList<Ventas> aux = (ArrayList<Ventas>) ventasRepository.findAll();
+			long mayor = 0;
+			for (Ventas v : aux) {
+				if (v.getCedulaCliente() > mayor) {
+					mayor = v.getCedulaCliente();
+				}
+			}
+			
+				return new ResponseEntity<>(mayor, HttpStatus.OK);
+			} catch (Exception e) {
+				return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+
+			}
+		}
+		
+		
 	  @GetMapping("/ventas/{codigoVenta}")
-	  public ResponseEntity<List<Ventas>> getVentasByCodigoVenta(@PathVariable("codigoVenta") Integer codigoVenta) {
+	  public ResponseEntity<List<Ventas>> getVentasByCodigoVenta(@PathVariable("codigoVenta") Long codigoVenta) {
 	    
 		 try {
 		 List<Ventas> ventasData = ventasRepository.findByCodigoVenta(codigoVenta);
@@ -65,7 +85,7 @@ public class VentasController {
 	  }
 	  
 	  @GetMapping("/ventas")
-		public ResponseEntity<List<Ventas>> getAllVentas(@RequestParam(required = false) Integer codigoVenta){
+		public ResponseEntity<List<Ventas>> getAllVentas(@RequestParam(required = false) Long codigoVenta){
 			try {
 				List<Ventas> ventas = new ArrayList<Ventas>();
 
@@ -86,7 +106,7 @@ public class VentasController {
 		}
 	  
 	  @DeleteMapping("/ventas/{codigoVenta}")
-	  public ResponseEntity<HttpStatus> deleteVentas(@PathVariable("codigoVenta") Integer codigoVenta) {
+	  public ResponseEntity<HttpStatus> deleteVentas(@PathVariable("codigoVenta") Long codigoVenta) {
 	    try {
 	      ventasRepository.deleteByCodigoVenta (codigoVenta);
 	      return new ResponseEntity<>(HttpStatus.OK);
@@ -105,33 +125,47 @@ public class VentasController {
 	    }
 	  }
 	  
-	  
-	  @PutMapping("/ventas/{codigoVenta}")
-	  public ResponseEntity<Ventas> updateVentas(@PathVariable("codigoVenta") Integer codigoVenta, @RequestBody Ventas codigoDeVenta) {
-	    
-		  List<Ventas> ventas = ventasRepository.findByCodigoVenta(codigoVenta); 		  
-		  
-		  
-		  Ventas ventasDatos = ventas.get(0);
-		  
-		  Optional<Ventas> ventasData = Optional.ofNullable(ventasDatos);
+	  @PutMapping("/ventas/id/{id}")
+		public ResponseEntity<Ventas> updateVentaById(@PathVariable("id") String id, @RequestBody Ventas sale) {
+			Optional<Ventas> ventaData = ventasRepository.findById(id);
 
-	    if (ventasData.isPresent()) {
-	    	
-	      Ventas _ventas = ventasData.get();
-	      
-	      _ventas.setCodigoVenta(codigoDeVenta.getCodigoVenta());
-	      _ventas.setCedulaCliente(codigoDeVenta.getCedulaCliente());
-	      _ventas.setDetalleventa(codigoDeVenta.getDetalleventa());
-	      _ventas.setTotalVenta(codigoDeVenta.getTotalVenta());
-	      _ventas.setIvaVenta(codigoDeVenta.getIvaVenta());
-	      _ventas.setTotalVentaConIva(codigoDeVenta.getTotalVentaConIva());
-	   
-	      return new ResponseEntity<>(ventasRepository.save(_ventas), HttpStatus.OK);
-	    } else {
-	      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-	    }
-	  }
+			if (ventaData.isPresent()) {
+				Ventas _venta = ventaData.get();
+				_venta.setCedulaCliente(sale.getCedulaCliente());
+				_venta.setCodigoVenta(sale.getCodigoVenta());
+				_venta.setDetalleventa(sale.getDetalleventa());
+				_venta.setIvaVenta(sale.getIvaVenta());
+				_venta.setTotalVenta(sale.getTotalVenta());
+				_venta.setTotalVentaConIva(sale.getTotalVentaConIva());
+				
+				return new ResponseEntity<>(ventasRepository.save(_venta), HttpStatus.OK);
+			} else {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+		}
+
+	  
+	  @PutMapping("/ventas/codigo/{codigo}")
+		public ResponseEntity<Ventas> updateVentaByCodigoventa(@PathVariable("codigo") long codigo,
+				@RequestBody Ventas sale) {
+			Ventas aux = ventasRepository.findByCodigoVenta(codigo).get(0);
+			Optional<Ventas> ventaData = Optional.of(aux);
+
+			if (ventaData.isPresent()) {
+				Ventas _venta = ventaData.get();
+				_venta.setCedulaCliente(sale.getCedulaCliente());
+				_venta.setCodigoVenta(sale.getCodigoVenta());
+				_venta.setDetalleventa(sale.getDetalleventa());
+				_venta.setIvaVenta(sale.getIvaVenta());
+				_venta.setTotalVenta(sale.getTotalVenta());
+				_venta.setTotalVentaConIva(sale.getTotalVentaConIva());
+
+				return new ResponseEntity<>(ventasRepository.save(_venta), HttpStatus.OK);
+			} else {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+		}
+
 	  
 	 
 }
