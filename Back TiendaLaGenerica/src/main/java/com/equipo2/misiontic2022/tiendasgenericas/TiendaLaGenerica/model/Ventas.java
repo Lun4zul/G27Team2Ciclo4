@@ -3,6 +3,7 @@ package com.equipo2.misiontic2022.tiendasgenericas.TiendaLaGenerica.model;
 import java.util.ArrayList;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "ventas")
@@ -10,8 +11,10 @@ public class Ventas {
 	
 	@Id
 	private String id;
-	private Long codigoVenta;
 	private Long cedulaCliente;
+	
+	@Indexed(unique=true)
+	private Long codigoVenta;
 	private ArrayList<DetalleVenta> detalleventa;
 	private Double totalVenta;
 	private Double ivaVenta;
