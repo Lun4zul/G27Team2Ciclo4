@@ -33,7 +33,7 @@ public class VentasController {
 	VentasRepository ventasRepository;
 	
 	  @PostMapping("/ventas")
-	  public ResponseEntity<Ventas> registrarVenta(@RequestBody Ventas codigoVenta, DetalleVenta codigoProducto) {
+	  public ResponseEntity<Ventas> registrarVenta(@RequestBody Ventas codigoVenta) {
 	    try {
 	      Ventas _ventas = ventasRepository.save(new Ventas(
 	    		  codigoVenta.getCodigoVenta(),
@@ -84,6 +84,7 @@ public class VentasController {
         }
 	  }
 	  
+	  
 	  @GetMapping("/ventas")
 		public ResponseEntity<List<Ventas>> getAllVentas(@RequestParam(required = false) Long codigoVenta){
 			try {
@@ -105,6 +106,32 @@ public class VentasController {
 			}
 		}
 	  
+	  
+	  @GetMapping("/ventas/id/{id}")
+		public ResponseEntity<Ventas> getVentaById(@PathVariable("id") String id) {
+			Optional<Ventas> ventaData = ventasRepository.findById(id);
+
+			if (ventaData.isPresent()) {
+				return new ResponseEntity<>(ventaData.get(), HttpStatus.OK);
+			} else {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+		}
+
+		
+		@GetMapping("/ventas/cedula/{cedula}")
+		public ResponseEntity<ArrayList<Ventas>> getVentaByCedulaCliente(@PathVariable("cedula") Long cedula) {
+			ArrayList<Ventas> aux = (ArrayList<Ventas>) ventasRepository.findByCedulaCliente(cedula);
+			Optional<ArrayList<Ventas>> ventaData = Optional.of(aux);
+
+			if (ventaData.isPresent()) {
+				return new ResponseEntity<>(ventaData.get(), HttpStatus.OK);
+			} else {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+		}
+
+			  
 	  @DeleteMapping("/ventas/{codigoVenta}")
 	  public ResponseEntity<HttpStatus> deleteVentas(@PathVariable("codigoVenta") Long codigoVenta) {
 	    try {
@@ -124,6 +151,29 @@ public class VentasController {
 	      return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	    }
 	  }
+	  
+	  
+	  @DeleteMapping("/ventas/id/{id}")
+		public ResponseEntity<HttpStatus> deleteVentasById(@PathVariable("id") String id) {
+			try {
+				ventasRepository.deleteById(id);
+				return new ResponseEntity<>(HttpStatus.ACCEPTED);
+			} catch (Exception e) {
+				return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+		}
+
+		@DeleteMapping("/ventas/cedula/{cedula}")
+		public ResponseEntity<HttpStatus> deleteVentasByCedulacliente(@PathVariable("cedula") long cedula) {
+			try {
+				ventasRepository.deleteByCodigoVenta(cedula);
+				return new ResponseEntity<>(HttpStatus.ACCEPTED);
+			} catch (Exception e) {
+				return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+		}
+
+	  
 	  
 	  @PutMapping("/ventas/id/{id}")
 		public ResponseEntity<Ventas> updateVentaById(@PathVariable("id") String id, @RequestBody Ventas sale) {
