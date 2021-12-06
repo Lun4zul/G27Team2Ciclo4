@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+<div class="content justify-content-center mt-2">
+    <div class="row align-items-center">
+        <div class="col-12">
+            <button type="button" class="btn btn-info btn-lg" [routerLink]="'/reportes/listado-clientes'">Listado de Clientes</button>
+            <button type="button" class="btn btn-warning btn-lg" [routerLink]="'/reportes/ventas-xcliente'">Ventas por Cliente
+                Cliente</button>
+            
+        </div>
+   
+
+<div class=" content">
+    <table class="compact nowrap table table-dark table-hover table-responsive-sm
+    table-responsive-lg table-responsive-xxl" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+    
+        <tr>
+            <th>Cedula</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Dirección</th>
+            <th>Teléfono</th>
+        </tr>
+      
+        <tbody>
+            <tr *ngFor="let clientes of contenido">
+                <td>{{clientes.cedulacliente}}</td>
+                <td>{{clientes.nombrecliente}}</td>
+                <td>{{clientes.emailcliente}}</td>
+                <td>{{clientes.direccioncliente}}</td>
+                <td>{{clientes.telefonocliente}}</td>
+            </tr>
+        </tbody>
+      </table>
+    
+    </div>
+</div>
+</div>

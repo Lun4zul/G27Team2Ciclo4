@@ -16,6 +16,8 @@ import { ActualizarComponent } from 'src/app/pages/clientes/actualizar/actualiza
 import { CrearComponent } from 'src/app/pages/clientes/crear/crear.component';
 import { EliminarComponent } from 'src/app/pages/clientes/eliminar/eliminar.component';
 import { ConsultarComponent } from 'src/app/pages/clientes/consultar/consultar.component';
+import { ListadoClientesComponent } from 'src/app/pages/reportes/listado-clientes/listado-clientes.component';
+import { VentasXClienteComponent } from 'src/app/pages/reportes/ventas-xcliente/ventas-xcliente.component';
 
 export const AdminLayoutRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -33,5 +35,7 @@ export const AdminLayoutRoutes: Routes = [
   { path:"clientes/actualizar", component: ActualizarComponent},
   { path:"clientes/eliminar", component: EliminarComponent},
   { path:"clientes/consultar", component: ConsultarComponent},
-  { path:"clientes/agregar", component:CrearComponent}
+  { path:"clientes/agregar", component:CrearComponent},
+  { path:"reportes/listado-clientes",component:ListadoClientesComponent},
+  { path: "reportes/ventas-xcliente",component:VentasXClienteComponent}
 ];
