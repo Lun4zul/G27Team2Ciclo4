@@ -18,6 +18,8 @@ import { ClientesComponent } from './pages/clientes/clientes.component';
 import { VentasComponent } from './pages/ventas/ventas.component';
 import { ReportesComponent } from './pages/reportes/reportes.component';
 import { ConsolidacionComponent } from './pages/consolidacion/consolidacion.component';
+import { ListadoClientesComponent } from './pages/reportes/listado-clientes/listado-clientes.component';
+import { VentasXClienteComponent } from './pages/reportes/ventas-xcliente/ventas-xcliente.component';
 
 @NgModule({
   imports: [
@@ -43,7 +45,7 @@ import { ConsolidacionComponent } from './pages/consolidacion/consolidacion.comp
     ClientesComponent, 
     VentasComponent, 
     ReportesComponent, 
-    ConsolidacionComponent
+    ConsolidacionComponent, ListadoClientesComponent, VentasXClienteComponent
   ],
     
   providers: [],

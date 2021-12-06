@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+<div class="content justify-content-center mt-2">
+    <div class="row align-items-center">
+        <div class="col-12">
+            <button type="button" class="btn btn-info btn-lg" [routerLink]="'/reportes/listado-clientes'">Listado de Clientes</button>
+            <button type="button" class="btn btn-warning btn-lg" [routerLink]="'/reportes/ventas-xcliente'">Ventas por Cliente
+                Cliente</button>
+            
+        </div>
+   
+
+<div class=" content">
+    <table class="compact nowrap table table-dark table-hover table-responsive-sm
+    table-responsive-lg table-responsive-xxl" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+    
+        <tr>
+            <th>Cedula</th>
+            <th>Codigo</th>
+            <th>Id</th>
+            <th>Venta</th>
+            <th>Iva</th>
+            <th>VALOR TOTAL</th>
+        </tr>
+      
+        <tbody>
+            <tr *ngFor="let ventas of contenido">
+                <td>{{ventas.cedulaCliente}}</td>
+                <td>{{ventas.codigoVenta}}</td>
+                <td>{{ventas.id}}</td>
+                <td>{{ventas.totalVenta}}</td>
+                <td>{{ventas.ivaVenta}}</td>
+                <td>{{ventas.totalVentaConIva}}</td>
+            </tr>  
+            
+        </tbody>
+      </table>
+      <div class="row justify-content-center mt-2">
+        <div class="column align-items-center pt-5">
+            <h3>Total Ventas $ <input > </h3>
+            
+        </div>
+    </div>
+    </div>
+   
+</div>
+</div>
