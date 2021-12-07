@@ -49,23 +49,26 @@ public class VentasController {
 	  }
 	  
 	 
-		@GetMapping("/ventas/consecutivo")
+	  @GetMapping("/ventas/consecutivo")
 		public ResponseEntity<Long> getVentaConsecutivo() {
 			try {
 			ArrayList<Ventas> aux = (ArrayList<Ventas>) ventasRepository.findAll();
 			long mayor = 0;
 			for (Ventas v : aux) {
-				if (v.getCedulaCliente() > mayor) {
-					mayor = v.getCedulaCliente();
+				if (v.getCodigoVenta() > mayor) {
+					mayor = v.getCodigoVenta();
 				}
+			}
+			if (aux.isEmpty()) {
+				mayor=1;
 			}
 			
 				return new ResponseEntity<>(mayor, HttpStatus.OK);
 			} catch (Exception e) {
 				return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-
 			}
 		}
+
 		
 		
 	  @GetMapping("/ventas/{codigoVenta}")
