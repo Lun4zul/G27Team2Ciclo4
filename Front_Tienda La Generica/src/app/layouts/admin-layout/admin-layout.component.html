@@ -1,18 +1,18 @@
 <div class="wrapper">
-  <div class="sidebar visually-hidden" id="lateral">
+  <div class="sidebar" *ngIf="state==1">
     <app-sidebar></app-sidebar>
   </div>
   <div class="main-panel">
-    <div class="row">
-      <app-navbar id="arriba" class="visually-hidden"></app-navbar>
+    <div class="row" *ngIf="state==1">
+      <app-navbar></app-navbar>
     </div>
     <div class="row justify-content-center m-2">
       <div class="col-12 align-items-center p-2">
         <router-outlet></router-outlet>
       </div>
     </div>
-    <div class="row relative-bottom">
-      <app-footer id="abajo" class="visually-hidden"></app-footer>
+    <div class="row relative-bottom" *ngIf="state==1">
+      <app-footer></app-footer>
     </div>
   </div>
 </div>

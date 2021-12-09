@@ -27,12 +27,6 @@ export class LoginComponent implements OnInit {
       this.correcto = 1;
       if (this.pass === this.passcorrecto) {
         this.correcto = 1;
-        let arriba = document.getElementById("arriba")
-        arriba.classList.remove("visually-hidden");
-        let lateral = document.getElementById("lateral")
-        lateral.classList.remove("visually-hidden");
-        let abajo = document.getElementById("abajo")
-        abajo.classList.remove("visually-hidden");
         this.showNotification('top', 'right',1);
         this.router.navigate(['/dashboard'])
       } else {

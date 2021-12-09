@@ -24,9 +24,7 @@ ngOnInit(){
       this.contenido = data;
       console.log(this.contenido);
     }
-    );
-  
-    
+    );    
 
    //Opciones especiales de la tabla, localización y caracteristicas
    this.dtOptions = {

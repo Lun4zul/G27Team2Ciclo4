@@ -1,210 +1,264 @@
-<div class="content justify-content-center mt-2">
-    <div class="row align-items-center">
-      
-	
-	
-<!-- Zona de ingreso de ingreso de informacion -->
-<div class="full-form">
-      		<h1>
-			<i class="fas fa-file-invoice"></i> Ventas Tienda La Genérica
-		</h1>
-	
-  <div class="column">
-     <div id="form-input">
-      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-        <div class="input-group input-group-lg mb-3">
-            <span class="input-group-text" id="basic-addon1">Ciudad</span>
-            <select [(ngModel)]="ciudad">
+
+<div class="content justify-content-center mt-2 ml-5">
+  <div class="row align-items-center">
+    <!-- Zona de ingreso de ingreso de informacion -->
+    <div class="full-form">
+      <h1>
+        <i class="fas fa-file-invoice"></i> Ventas Tienda La Genérica
+      </h1>
+
+      <div class="column">
+        <div id="form-input">
+          
+          <div class="row">
+            <div class="col">
+              <select [(ngModel)]="ciudad">
                 <option selected>Seleccionar .....</option>
                 <option value="1">Bogotá</option>
                 <option value="2">Medellin</option>
                 <option value="3">Cali</option>
             </select>
+              <div class="form-floating">
+                <input type="text" class="form-control" id="nombre_cliente" id="form-floating "
+                  placeholder="Nombre Cliente" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"
+                  name="Nombre Cliente" required [(ngModel)]="cedulacliente">
+                <label for="form-floating">Cedula cliente</label>
+              </div>
+            </div>
+            <div class="col">
+              <button type="button" class="btn btn-info" (click)="getCliente()">
+                Consultar Cliente</button>
+            </div>
+            <div class="col">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="nombre_cliente" id="form-floating "
+                  placeholder="Nombre Cliente" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"
+                  name="Nombre Cliente" [(ngModel)]="clientedata.nombrecliente" required>
+                <label for="form-floating">Cliente</label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="consecutivo" id="form-floating " placeholder="Consecutivo"
+                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Nombre Cliente" [(ngModel)]="consecutivo"
+                  required>
+                <label for="form-floating">Consecutivo</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt-3">
+            <div class="col grid no-grid-right grid-brackground" style="margin-left:12px">Codigo Producto</div>
+            <div class="col grid no-grid-left grid-brackground"></div>
+            <div class="col grid grid-brackground">Nombre Producto</div>
+            <div class="col grid grid-brackground">Precio Unitario</div>
+            <div class="col grid grid-brackground">Cantidad</div>
+            <div class="col grid grid-brackground">Valor Total</div>
+            <div class="w-100"></div>
+            <div class="col">
+              <div class="form-floating grid-left">
+                <input type="text" class="form-control" id="producto1" id="form-floating " placeholder="Producto"
+                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Producto1" required>
+                <label for="form-floating" style="font-size:12px;">Ingrese código</label>
+              </div>
+            </div>
+            <div class="col">
+              <button style="font-size:15px;" type="button" class="btn btn-success"
+                onclick="consultarProducto1()">Colsultar Producto</button>
+            </div>
+            <div class="col">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="result1" id="form-floating " placeholder="Producto"
+                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Producto1" disabled>
+                <label for="form-floating" style="font-size:12px;">Producto</label>
+
+
+          <div class="row">
+            <div class="col">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="nombre_cliente" id="form-floating "
+                  placeholder="Nombre Cliente" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"
+                  name="Nombre Cliente" required>
+                <label for="form-floating">Cedula cliente</label>
+              </div>
+            </div>
+            <div class="col">
+              <button type="button" class="btn btn-info" onclick="consultarCliente()">
+                Consultar Cliente</button>
+            </div>
+            <div class="col">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="nombre_cliente" id="form-floating "
+                  placeholder="Nombre Cliente" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"
+                  name="Nombre Cliente" required>
+                <label for="form-floating">Cliente</label>
+
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="value1" id="form-floating " placeholder="Producto"
+                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Producto1" disabled>
+                <label for="form-floating" style="font-size:12px;">Precio Unitario</label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="quantity1" id="form-floating " placeholder="Cantidad"
+                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Cantidad" required>
+                <label for="form-floating" style="font-size:12px;">Ingresa la cantidad</label>
+              </div>
+            </div>
+            <div class="col padding-right">
+              <div class="form-floating grid-right">
+                <input type="text" class="form-control" id="total1" id="form-floating " placeholder="Total"
+                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Total" disabled>
+                <label for="form-floating" style="font-size:12px;">Total</label>
+
+                <input type="text" class="form-control" id="consecutivo" id="form-floating " placeholder="Consecutivo"
+                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Nombre Cliente"
+                  required>
+                <label for="form-floating">Consecutivo</label>
+              </div>
+            </div>
+          </div>
+                
+
+
+          <div class="row mt-3">
+            <div class="col">
+              <div class="form-floating grid-left">
+                <input type="text" class="form-control" id="producto2" id="form-floating " placeholder="Producto"
+
+            <div class="col grid no-grid-right grid-brackground" style="margin-left:12px">Codigo Producto</div>
+            <div class="col grid no-grid-left grid-brackground"></div>
+            <div class="col grid grid-brackground">Nombre Producto</div>
+            <div class="col grid grid-brackground">Precio Unitario</div>
+            <div class="col grid grid-brackground">Cantidad</div>
+            <div class="col grid grid-brackground">Valor Total</div>
+            <div class="w-100"></div>
+            <div class="col">
+              <div class="form-floating grid-left">
+                <input type="text" class="form-control" id="producto1" id="form-floating " placeholder="Producto"
+                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Producto1" 
+                  [(ngModel)]="codprod1" required>
+                <label for="form-floating" style="font-size:12px;">Ingrese código</label>
+              </div>
+            </div>
+            <div class="col"><button style="font-size:15px;" type="button" class="btn btn-success"
+                onclick="consultarProducto2()">Colsultar Producto</button></div>
+            <div class="col">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="result2" id="form-floating " placeholder="Producto"
+
+            <div class="col">
+              <button style="font-size:15px;" type="button" class="btn btn-success"
+                onclick="consultarProducto1()">Colsultar Producto</button>
+            </div>
+            <div class="col">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="result1" id="form-floating " placeholder="Producto"
+                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Producto1" disabled>
+                <label for="form-floating" style="font-size:12px;">Producto</label>
+              </div>
+            </div>
+            
+            <div class="col">
+              <div class="form-floating">
+
+                <input type="text" class="form-control" id="quantity2" id="form-floating " placeholder="Cantidad"
+                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Cantidad" required>
+                <label for="form-floating" style="font-size:12px;">Ingresa la cantidad</label>
+              </div>
+            </div>
+            <div class="col padding-right">
+              <div class="form-floating grid-right">
+
+                <input type="text" class="form-control" id="total2" id="form-floating " placeholder="Total"
+                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Total" disabled>
+                <label for="form-floating" style="font-size:12px;">Total</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt-3">
+            <div class="col">
+              <div class="form-floating grid-left">
+
+                <input type="text" class="form-control" id="producto3" id="form-floating " placeholder="Producto"
+                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Producto1" required>
+                <label for="form-floating" style="font-size:12px;">Ingrese código</label>
+              </div>
+            </div>
+            <div class="col"><button style="font-size:15px;" type="button" class="btn btn-success"
+                onclick="consultarProducto3()">Colsultar Producto</button></div>
+            <div class="col">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="result3" id="form-floating " placeholder="Producto"
+                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Producto1" disabled>
+                <label for="form-floating" style="font-size:12px;">Producto</label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="value3" id="form-floating " placeholder="Producto"
+                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Producto1" disabled>
+                <label for="form-floating" style="font-size:12px;">Precio Unitario</label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="quantity3" id="form-floating " placeholder="Cantidad"
+                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Cantidad" required>
+                <label for="form-floating" style="font-size:12px;">Ingresa la cantidad</label>
+              </div>
+            </div>
+            <div class="col padding-right">
+              <div class="form-floating grid-right">
+
+                <input type="text" class="form-control" id="total3" id="form-floating " placeholder="Total"
+                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Total" disabled>
+                <label for="form-floating" style="font-size:12px;">Total</label>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row justify-content-end mt-3">
+            <div class="col-auto total">Total Venta</div>
+            <div class="col-auto">
+              <input type="text" class="form-control" id="total_purchase" id="form-floating "
+                aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Total" disabled>
+            </div>
+          </div>
         </div>
-    </div>
-       <div class="row">
-         
-  <div class="col"><div class="form-floating">  
-    <div class="col grid no-grid-right grid-brackground" style="margin-left:12px">Cédula Cliente</div>    
-        <input type="text" class="form-control" class="input-field" id="cedula_cliente" 
-        id="form-floating " placeholder=" Cedula" aria-label="Sizing example input" 
-        aria-describedby="inputGroup-sizing-lg" [(ngModel)]="cedulacliente"
-         required>
-    </div>
-  </div>
-  <div class="col"><button type="button" class="btn btn-info"
-						(click)="getCliente()">Consultar Cliente</button></div>
-  <div class="col"><div class="form-floating">
-        <input type="text" class="form-control"  id="nombre_cliente" id="form-floating " placeholder="Nombre Cliente" 
-        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Nombre Cliente" 
-         [(ngModel)]="clientedata.nombrecliente" required>
-        <label for="form-floating">Cliente</label>
-      </div></div>
-  <div class="col"><div class="form-floating">
-        <input type="text" class="form-control"  id="consecutivo"  placeholder="Consecutivo" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"  [(ngModel)]="consecutivo"  required>
-        <label for="form-floating"  >Consecutivo</label>
-        
-      </div></div>
 
-    <div class="row">
-  <div class="col grid no-grid-right grid-brackground" style="margin-left:12px">Codigo Producto</div>
-  <div class="col grid no-grid-left grid-brackground"></div>
-  <div class="col grid grid-brackground">Nombre Producto</div>
-  <div class="col grid grid-brackground">Precio Unitario</div>
-  <div class="col grid grid-brackground">Cantidad</div>
-  <div class="col grid grid-brackground">Valor Total</div>
-  <div class="w-100"></div>
+        <div class="row justify-content-end mt-3">
+          <div class="col-auto total">Total IVA</div>
+          <div class="col-auto">
+            <input type="text" class="form-control" id="total_tax" id="form-floating " aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" name="Total" disabled>
+          </div>
+        </div>
 
+        <div class="row justify-content-end mt-3">
+          <div class="col-auto total">Total Ventas con IVA</div>
+          <div class="col-auto">
+            <input type="text" class="form-control" id="total_tax" id="form-floating " aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" name="Total" disabled>
+          </div>
+        </div>
 
-  <div class="col"><div class="form-floating grid-left">
-        <input type="text" class="form-control"  id="producto1" id="form-floating " placeholder="Producto" aria-label="Sizing example input" 
-        aria-describedby="inputGroup-sizing-lg" name="Producto1" [(ngModel)]="codprod1" required>
-        <label for="form-floating" style="font-size:12px;">Ingrese código</label>
-      </div></div>
-  <div class="col"><button style = "font-size:15px;" type="button" class="btn btn-success"
-					(click)="getProducto(1)" >Consultar Producto</button></div>
-  <div class="col"><div class="form-floating">
-        <input type="text" class="form-control"  id="result1" id="form-floating " placeholder="Producto" 
-        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Producto1" 
-        [(ngModel)]="product1[0].nombreproducto" disabled>
-        <label for="form-floating" style="font-size:12px;">Producto</label>
+        <div class="row justify-content-start mt-3">
+          <div class="col">
+            <button style="font-size:15px;" type="button" class="btn btn-success mr-5" 
+              (click)="postVenta()">Confirmar compra</button>
+              <button type="button" class="btn btn-warning btn-sm" (click)="reload()" style="font-size:15px;">
+                <i class="fas fa-sync-alt"></i> Recargar pagina
+            </button>
+          </div>
+        </div>
       </div>
+    </div>
   </div>
-  
-   <div class="col"><div class="form-floating">
-      <input type="text" class="form-control"  id="value1" id="form-floating " placeholder="Producto" 
-      aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Producto1" 
-      [(ngModel)]="product1[0].precioventa" disabled>
-        <label for="form-floating" style="font-size:12px;">Precio Unitario</label>
-      </div></div>
-  <div class="col"><div class="form-floating">
-        <input type="text" class="form-control"  id="quantity1" id="form-floating " placeholder="Cantidad" aria-label="Sizing example input" 
-        aria-describedby="inputGroup-sizing-lg" name="Cantidad" [(ngModel)]="cant1" (input)="calcPrecioProd(1)" required>
-        <label for="form-floating" style="font-size:12px;">Ingresa la cantidad</label>
-      </div></div>
-  <div class="col padding-right"><div class="form-floating grid-right">
-        <input type="text" class="form-control"  id="total1" id="form-floating " placeholder="Total"
-         aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Total" 
-         [(ngModel)]="precioprod1" disabled>
-        <label for="form-floating" style="font-size:12px;">Total</label>
-      </div></div>
-  <div class="w-100"></div>
-  
-  
-  
-  <div class="col"><div class="form-floating grid-left">
-        <input type="text" class="form-control"  id="producto2" id="form-floating " placeholder="Producto" 
-        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" 
-        name="Producto1" [(ngModel)]="codprod2" required>
-        <label for="form-floating" style="font-size:12px;">Ingrese código</label>
-      </div></div>
-  <div class="col"><button style = "font-size:15px;" type="button" class="btn btn-success"
-    (click)="getProducto(2)">Consultar Producto</button></div>
-  <div class="col"><div class="form-floating">
-        <input type="text" class="form-control"  id="result2" id="form-floating " placeholder="Producto"
-         aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Producto1" 
-         [(ngModel)]="product2[0].nombreproducto" disabled>
-        <label for="form-floating" style="font-size:12px;">Producto</label>
-      </div></div>
-  <div class="col"><div class="form-floating">
-        <input type="text" class="form-control"  id="value2" id="form-floating " placeholder="Producto" 
-        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Producto1" 
-        [(ngModel)]="product2[0].precioventa" disabled>
-        <label for="form-floating" style="font-size:12px;">Precio Unitario</label>
-      </div></div>
-  <div class="col"><div class="form-floating">
-        <input type="text" class="form-control"  id="quantity2" id="form-floating " placeholder="Cantidad" 
-        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Cantidad" 
-         [(ngModel)]="cant2" (input)="calcPrecioProd(2)"required>
-        <label for="form-floating" style="font-size:12px;">Ingresa la cantidad</label>
-      </div></div>
-  <div class="col padding-right"><div class="form-floating grid-right">
-        <input type="text" class="form-control"  id="total2" id="form-floating " placeholder="Total" 
-        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Total"
-        [(ngModel)]="precioprod2"  disabled>
-        <label for="form-floating" style="font-size:12px;">Total</label>
-      </div></div>
-
-
-  <div class="w-100"></div>
-  <div class="col"><div class="form-floating grid-left">
-        <input type="text" class="form-control"  id="producto3" id="form-floating " placeholder="Producto"
-         aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" 
-         name="Producto1" [(ngModel)]="codprod3" required>
-        <label for="form-floating" style="font-size:12px;">Ingrese código</label>
-      </div></div>
-  <div class="col"><button style = "font-size:15px;" type="button" class="btn btn-success"
-    (click)="getProducto(3)">Consultar Producto</button></div>
-  <div class="col"><div class="form-floating">
-        <input type="text" class="form-control"  id="result3" id="form-floating " placeholder="Producto" 
-        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Producto1" 
-        [(ngModel)]="product3[0].nombreproducto" disabled>
-        <label for="form-floating" style="font-size:12px;">Producto</label>
-      </div></div>
-  <div class="col"><div class="form-floating">
-        <input type="text" class="form-control"  id="value3" id="form-floating " placeholder="Producto" 
-        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Producto1" 
-        [(ngModel)]="product3[0].precioventa" disabled>
-        <label for="form-floating" style="font-size:12px;">Precio Unitario</label>
-      </div></div>
-  <div class="col"><div class="form-floating">
-        <input type="text" class="form-control"  id="quantity3" id="form-floating " placeholder="Cantidad" 
-        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Cantidad" 
-        [(ngModel)]="cant3" (input)="calcPrecioProd(3)" required>
-        <label for="form-floating" style="font-size:12px;">Ingresa la cantidad</label>
-      </div></div>
-  <div class="col padding-right"><div class="form-floating grid-right">
-        <input type="text" class="form-control"  id="total3" id="form-floating " placeholder="Total"
-         aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Total"
-         [(ngModel)]="precioprod3"  disabled>
-        <label for="form-floating" style="font-size:12px;">Total</label>
-      </div></div>
-
-      <div class="w-100"></div>
-  <div class="col grid-left" style="margin-left:12px"></div>
-  <div class="col"></div>
-  <div class="col">
-</div>
-  <div class="col center">Total Venta</div>
-  <div class="col padding-right">
-        <input type="text" class="form-control"  id="total_purchase" id="form-floating " 
-         aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Total" 
-         [(ngModel)]="totalventa"disabled>
-      </div></div>
-<div class="w-100"></div>
-  <div class="col grid-left" style="margin-left:12px"></div>
-  <div class="col"></div>
-  <div class="col"><button style = "font-size:15px;" type="button" class="btn btn-success"
-    (click)="postVenta()">Confirmar </button>
-</div>
-
-  <div class="col right">Total IVA</div>
-  <div class="col padding-right"><div class="form-floating grid-right" style="height: 98px;">
-        <input type="text" class="form-control"  id="total_tax" id="form-floating " placeholder="total_tax" 
-        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Total" 
-        [(ngModel)]="totaliva" disabled>
-      </div></div>
-
-      <div class="w-100"></div>
-  <div class="col grid-left grid-button" style="margin-left:12px"></div>
-  <div class="col grid-button"></div>
-  <div class="col">
-</div>
-<div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
-  <button type="button" class="btn btn-warning btn-sm" (click)="reload()">
-      <i class="fas fa-sync-alt"></i> Recargar pagina
-  </button>
-</div>
-  <div class="col grid-button"><span>Total con IVA</span></div>
-  <div class="col grid-button padding-right">
-        <input type="text" class="form-control"  id="total_final" id="form-floating " placeholder="Total Venta" 
-        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Total" 
-        [(ngModel)]="totalplusiva" disabled>
-      </div></div>
-
-</div>  
-</div>
-
-
-
 </div>
