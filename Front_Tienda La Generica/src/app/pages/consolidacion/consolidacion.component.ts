@@ -16,12 +16,13 @@ dtTrigger: Subject<any> = new Subject<any>();
 res:any;
 contenido:any;  
 urlapi:string="http://localhost:8080/api/consolidados";
+totalventas: number = 0.0;
 
 constructor(private objetohttp:HttpClient){}
 ngOnInit(){
   this.res=this.objetohttp.get(this.urlapi);
   this.res.subscribe((data:any[]) => {
-      this.contenido = data;
+      this.contenido = data;      
       console.log(this.contenido);
     }
     );
