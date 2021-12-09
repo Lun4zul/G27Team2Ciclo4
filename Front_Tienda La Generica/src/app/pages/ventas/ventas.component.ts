@@ -125,7 +125,7 @@ export class VentasComponent implements OnInit {
 
   codigorespuesta: any;
   listadetalleventa = Array();
-  ciudad: any;
+  ciudad: string = '0';
   postVenta() {
     if (this.precioprod1 != null && this.precioprod1 != undefined && this.precioprod1 != "") {
       let aux = {
@@ -194,71 +194,6 @@ export class VentasComponent implements OnInit {
       }
     );
 
-  }
-  postConsolidado() {
-    console.log(this.ciudad)
-    console.log(typeof this.ciudad)
-    this.clientehttp.post(this.apiURL + "consolidados/agregar/"+this.ciudad, 
-    {},
-    {observe:"response"}
-    ).subscribe((response: any) => {
-
-      console.log(response.status)
-
-    });
-  }
-
-  showNotification(from, align, type) {
-    switch (type) {
-      case 1:
-        this.toastr.success('<b>Dato creado con exito</b>', '', {
-          disableTimeOut: false,
-          closeButton: true,
-          enableHtml: true,
-          toastClass: 'alert alert-success alert-with-icon',
-          positionClass: 'toast-' + from + '-' + align
-        });
-        break;
-      case 2:
-        this.toastr.warning('<b>El dato se encuentra duplicado', '', {
-          disableTimeOut: false,
-          enableHtml: true,
-          closeButton: true,
-          toastClass: 'alert alert-danger alert-with-icon',
-          positionClass: 'toast-' + from + '-' + align
-        });
-        break;
-      case 3:
-        this.toastr.error('<b>Error del servidor', '', {
-          disableTimeOut: false,
-          enableHtml: true,
-          closeButton: true,
-          toastClass: 'alert alert-danger alert-with-icon',
-          positionClass: 'toast-' + from + '-' + align
-        });
-        break;
-    }
-  }
-
-  reload() {
-    window.location.reload()
-  }
-
-
-  ngOnInit(): void {
-    this.clientedata = {
-      "nombrecliente": ""
-    }
-    this.product1 = [{
-      "nombreproducto": ""
-    }]
-    this.product2 = [{
-      "nombreproducto": ""
-    }]
-    this.product3 = [{
-      "nombreproducto": ""
-    }]
-    this.getConsecutivo();
 
   }
   postConsolidado() {
@@ -325,5 +260,8 @@ export class VentasComponent implements OnInit {
       "nombreproducto": ""
     }]
     this.getConsecutivo();
+
+
   }
+
 }
