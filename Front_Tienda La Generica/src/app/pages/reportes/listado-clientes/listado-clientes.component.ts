@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
+import { LeerService } from 'src/app/servicios/leer.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listado-clientes',
@@ -9,68 +10,64 @@ import { Subject } from 'rxjs';
 })
 export class ListadoClientesComponent implements OnInit {
 
- //opciones y objeto revisor de la tabla
-dtOptions: DataTables.Settings = {};
-dtTrigger: Subject<any> = new Subject<any>();
+  urlapi: string = "http://localhost:8080/api/clientes/";
 
-res:any;
-contenido:any;  
-urlapi:string="http://localhost:8080/api/clientes";
+  codigoRespuesta!: number;
+  mostrar!: boolean;
+  cedula!: string;
+  correcto!: number;
+  contenido: any;
 
-constructor(private objetohttp:HttpClient){}
-ngOnInit(){
-  this.res=this.objetohttp.get(this.urlapi);
-  this.res.subscribe((data:any[]) => {
+  constructor(private toastr: ToastrService, private read: LeerService, private router: Router) {
+
+  }
+  ngOnInit(): void {
+
+    console.log("llego")
+    this.read.leerTodos(this.urlapi).subscribe((data: any[]) => {
       this.contenido = data;
       console.log(this.contenido);
-    }
-    );
-  
+    });
+    this.comparar();
+  }
 
-   //Opciones especiales de la tabla, localización y caracteristicas
-   this.dtOptions = {
-    pagingType: 'full_numbers',
-    columns: [
-      {
-        title: 'Cedula',
-      },
-      {
-        title: 'Nombre',
-      },
-      {
-        title: 'Correo Electrónico',
-      },
-      {
-        title: 'Dirección',
-      },
-      {
-        title: 'Teléfono',
-      }
-    ],
-    pageLength: 10,
-    responsive: true,
-    language: {
-      processing: "Procesando...",
-      search: "Buscar:",
-      lengthMenu: "Mostrar _MENU_ elementos",
-      info: "Mostrando desde _START_ al _END_ de _TOTAL_ elementos",
-      infoEmpty: "Mostrando ningún elemento.",
-      infoFiltered: "(filtrado _MAX_ elementos total)",
-      infoPostFix: "",
-      loadingRecords: "Cargando registros...",
-      zeroRecords: "No se encontraron registros",
-      emptyTable: "No hay datos disponibles en la tabla",
-      paginate: {
-        first: "Primero",
-        previous: "Anterior",
-        next: "Siguiente",
-        last: "Último"
-      },
-      aria: {
-        sortAscending: ": Activar para ordenar la tabla en orden ascendente",
-        sortDescending: ": Activar para ordenar la tabla en orden descendente"
-      }
+  comparar() {
+    if (this.codigoRespuesta === 200) {
+      this.correcto = 1;
+      this.showNotification('top', 'right', 1);
+    } else if (this.codigoRespuesta === 404) {
+      this.correcto = 2;
+      this.showNotification('top', 'right', 2);
+    } else if (this.codigoRespuesta === 500) {
+      this.correcto = 3;
+      this.showNotification('top', 'right', 2);
     }
-  };
-}
+    console.log(this.codigoRespuesta)
+    console.log(this.correcto)
+  }
+
+  showNotification(from: string, align: string, type: number) {
+    switch (type) {
+      case 1:
+        this.toastr.success('<span><i class="fas fa-check"></i></span><b>Cliente eliminado con exito</b>', '', {
+          disableTimeOut: false,
+          closeButton: true,
+          enableHtml: true,
+          toastClass: 'alert alert-success alert-with-icon',
+          positionClass: 'toast-' + from + '-' + align
+        });
+        break;
+      case 2:
+        this.toastr.error('<span><i class="fas fa-times"></i></span> <b>Error al eliminar el cliente</b>', '', {
+          disableTimeOut: false,
+          enableHtml: true,
+          closeButton: true,
+          toastClass: 'alert alert-danger alert-with-icon',
+          positionClass: 'toast-' + from + '-' + align
+        });
+        break;
+      default:
+        break;
+    }
+  }
 }

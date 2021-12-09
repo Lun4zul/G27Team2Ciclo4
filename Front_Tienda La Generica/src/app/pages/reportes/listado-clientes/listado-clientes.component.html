@@ -1,37 +1,23 @@
-<app-navbar></app-navbar>
-<div class="content justify-content-center mt-2">
-    <div class="row align-items-center">
-        <div class="col-12">
-            <button type="button" class="btn btn-info btn-lg" [routerLink]="'/reportes/listado-clientes'">Listado de Clientes</button>
-            <button type="button" class="btn btn-warning btn-lg" [routerLink]="'/reportes/ventas-xcliente'">Ventas por Cliente
-                Cliente</button>
-            
+<div class="content">
+    <div class="row">
+        <h2>LISTA DE CLIENTES</h2>
+        <div class="row justify-content-center mt-2">
+            <div class="col-auto puntero" *ngFor="let dato of contenido">
+                <div class="card mt-2">
+                    <img src="https://cdn.pixabay.com/photo/2016/04/15/18/05/computer-1331579_960_720.png"
+                    class="img-fluid" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Datos del cliente</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">{{dato.nombrecliente}}</li>
+                        <li class="list-group-item">{{dato.cedulacliente}}</li>
+                        <li class="list-group-item">{{dato.direccioncliente}}</li>
+                        <li class="list-group-item">{{dato.telefonocliente}}</li>
+                        <li class="list-group-item">{{dato.emailcliente}}</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-   
-
-<div class=" content">
-    <table class="compact nowrap table table-dark table-hover table-responsive-sm
-    table-responsive-lg table-responsive-xxl" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
-    
-        <tr>
-            <th>Cedula</th>
-            <th>Nombre</th>
-            <th>Correo</th>
-            <th>Dirección</th>
-            <th>Teléfono</th>
-        </tr>
-      
-        <tbody>
-            <tr *ngFor="let clientes of contenido">
-                <td>{{clientes.cedulacliente}}</td>
-                <td>{{clientes.nombrecliente}}</td>
-                <td>{{clientes.emailcliente}}</td>
-                <td>{{clientes.direccioncliente}}</td>
-                <td>{{clientes.telefonocliente}}</td>
-            </tr>
-        </tbody>
-      </table>
-    
     </div>
-</div>
 </div>
