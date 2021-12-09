@@ -10,7 +10,7 @@ public interface ProductoRepository extends MongoRepository<Producto, String>{
 	List<Producto> findByCodigoproducto(Long codigoproducto);
 	
 	List<Producto> findByNombreproducto(String nombreproducto);
-
+	
 }
 
     

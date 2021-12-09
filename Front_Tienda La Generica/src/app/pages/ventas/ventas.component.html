@@ -1,3 +1,4 @@
+
 <div class="content justify-content-center mt-2 ml-5">
   <div class="row align-items-center">
     <!-- Zona de ingreso de ingreso de informacion -->
@@ -8,33 +9,38 @@
 
       <div class="column">
         <div id="form-input">
-<<<<<<< Updated upstream
           
           <div class="row">
             <div class="col">
+              <select [(ngModel)]="ciudad">
+                <option selected>Seleccionar .....</option>
+                <option value="1">Bogotá</option>
+                <option value="2">Medellin</option>
+                <option value="3">Cali</option>
+            </select>
               <div class="form-floating">
                 <input type="text" class="form-control" id="nombre_cliente" id="form-floating "
                   placeholder="Nombre Cliente" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"
-                  name="Nombre Cliente" required>
+                  name="Nombre Cliente" required [(ngModel)]="cedulacliente">
                 <label for="form-floating">Cedula cliente</label>
               </div>
             </div>
             <div class="col">
-              <button type="button" class="btn btn-info" onclick="consultarCliente()">
+              <button type="button" class="btn btn-info" (click)="getCliente()">
                 Consultar Cliente</button>
             </div>
             <div class="col">
               <div class="form-floating">
                 <input type="text" class="form-control" id="nombre_cliente" id="form-floating "
                   placeholder="Nombre Cliente" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"
-                  name="Nombre Cliente" required>
+                  name="Nombre Cliente" [(ngModel)]="clientedata.nombrecliente" required>
                 <label for="form-floating">Cliente</label>
               </div>
             </div>
             <div class="col">
               <div class="form-floating">
                 <input type="text" class="form-control" id="consecutivo" id="form-floating " placeholder="Consecutivo"
-                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Nombre Cliente"
+                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Nombre Cliente" [(ngModel)]="consecutivo"
                   required>
                 <label for="form-floating">Consecutivo</label>
               </div>
@@ -65,7 +71,7 @@
                 <input type="text" class="form-control" id="result1" id="form-floating " placeholder="Producto"
                   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Producto1" disabled>
                 <label for="form-floating" style="font-size:12px;">Producto</label>
-=======
+
 
           <div class="row">
             <div class="col">
@@ -86,12 +92,11 @@
                   placeholder="Nombre Cliente" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"
                   name="Nombre Cliente" required>
                 <label for="form-floating">Cliente</label>
->>>>>>> Stashed changes
+
               </div>
             </div>
             <div class="col">
               <div class="form-floating">
-<<<<<<< Updated upstream
                 <input type="text" class="form-control" id="value1" id="form-floating " placeholder="Producto"
                   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Producto1" disabled>
                 <label for="form-floating" style="font-size:12px;">Precio Unitario</label>
@@ -109,22 +114,22 @@
                 <input type="text" class="form-control" id="total1" id="form-floating " placeholder="Total"
                   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Total" disabled>
                 <label for="form-floating" style="font-size:12px;">Total</label>
-=======
+
                 <input type="text" class="form-control" id="consecutivo" id="form-floating " placeholder="Consecutivo"
                   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Nombre Cliente"
                   required>
                 <label for="form-floating">Consecutivo</label>
->>>>>>> Stashed changes
               </div>
             </div>
           </div>
+                
+
 
           <div class="row mt-3">
-<<<<<<< Updated upstream
             <div class="col">
               <div class="form-floating grid-left">
                 <input type="text" class="form-control" id="producto2" id="form-floating " placeholder="Producto"
-=======
+
             <div class="col grid no-grid-right grid-brackground" style="margin-left:12px">Codigo Producto</div>
             <div class="col grid no-grid-left grid-brackground"></div>
             <div class="col grid grid-brackground">Nombre Producto</div>
@@ -135,18 +140,17 @@
             <div class="col">
               <div class="form-floating grid-left">
                 <input type="text" class="form-control" id="producto1" id="form-floating " placeholder="Producto"
->>>>>>> Stashed changes
-                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Producto1" required>
+                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Producto1" 
+                  [(ngModel)]="codprod1" required>
                 <label for="form-floating" style="font-size:12px;">Ingrese código</label>
               </div>
             </div>
-<<<<<<< Updated upstream
             <div class="col"><button style="font-size:15px;" type="button" class="btn btn-success"
                 onclick="consultarProducto2()">Colsultar Producto</button></div>
             <div class="col">
               <div class="form-floating">
                 <input type="text" class="form-control" id="result2" id="form-floating " placeholder="Producto"
-=======
+
             <div class="col">
               <button style="font-size:15px;" type="button" class="btn btn-success"
                 onclick="consultarProducto1()">Colsultar Producto</button>
@@ -154,40 +158,23 @@
             <div class="col">
               <div class="form-floating">
                 <input type="text" class="form-control" id="result1" id="form-floating " placeholder="Producto"
->>>>>>> Stashed changes
                   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Producto1" disabled>
                 <label for="form-floating" style="font-size:12px;">Producto</label>
               </div>
             </div>
+            
             <div class="col">
               <div class="form-floating">
-<<<<<<< Updated upstream
-                <input type="text" class="form-control" id="value2" id="form-floating " placeholder="Producto"
-=======
-                <input type="text" class="form-control" id="value1" id="form-floating " placeholder="Producto"
->>>>>>> Stashed changes
-                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Producto1" disabled>
-                <label for="form-floating" style="font-size:12px;">Precio Unitario</label>
-              </div>
-            </div>
-            <div class="col">
-              <div class="form-floating">
-<<<<<<< Updated upstream
+
                 <input type="text" class="form-control" id="quantity2" id="form-floating " placeholder="Cantidad"
-=======
-                <input type="text" class="form-control" id="quantity1" id="form-floating " placeholder="Cantidad"
->>>>>>> Stashed changes
                   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Cantidad" required>
                 <label for="form-floating" style="font-size:12px;">Ingresa la cantidad</label>
               </div>
             </div>
             <div class="col padding-right">
               <div class="form-floating grid-right">
-<<<<<<< Updated upstream
+
                 <input type="text" class="form-control" id="total2" id="form-floating " placeholder="Total"
-=======
-                <input type="text" class="form-control" id="total1" id="form-floating " placeholder="Total"
->>>>>>> Stashed changes
                   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Total" disabled>
                 <label for="form-floating" style="font-size:12px;">Total</label>
               </div>
@@ -197,67 +184,46 @@
           <div class="row mt-3">
             <div class="col">
               <div class="form-floating grid-left">
-<<<<<<< Updated upstream
+
                 <input type="text" class="form-control" id="producto3" id="form-floating " placeholder="Producto"
-=======
-                <input type="text" class="form-control" id="producto2" id="form-floating " placeholder="Producto"
->>>>>>> Stashed changes
                   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Producto1" required>
                 <label for="form-floating" style="font-size:12px;">Ingrese código</label>
               </div>
             </div>
             <div class="col"><button style="font-size:15px;" type="button" class="btn btn-success"
-<<<<<<< Updated upstream
                 onclick="consultarProducto3()">Colsultar Producto</button></div>
             <div class="col">
               <div class="form-floating">
                 <input type="text" class="form-control" id="result3" id="form-floating " placeholder="Producto"
-=======
-                onclick="consultarProducto2()">Colsultar Producto</button></div>
-            <div class="col">
-              <div class="form-floating">
-                <input type="text" class="form-control" id="result2" id="form-floating " placeholder="Producto"
->>>>>>> Stashed changes
                   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Producto1" disabled>
                 <label for="form-floating" style="font-size:12px;">Producto</label>
               </div>
             </div>
             <div class="col">
               <div class="form-floating">
-<<<<<<< Updated upstream
                 <input type="text" class="form-control" id="value3" id="form-floating " placeholder="Producto"
-=======
-                <input type="text" class="form-control" id="value2" id="form-floating " placeholder="Producto"
->>>>>>> Stashed changes
                   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Producto1" disabled>
                 <label for="form-floating" style="font-size:12px;">Precio Unitario</label>
               </div>
             </div>
             <div class="col">
               <div class="form-floating">
-<<<<<<< Updated upstream
                 <input type="text" class="form-control" id="quantity3" id="form-floating " placeholder="Cantidad"
-=======
-                <input type="text" class="form-control" id="quantity2" id="form-floating " placeholder="Cantidad"
->>>>>>> Stashed changes
                   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Cantidad" required>
                 <label for="form-floating" style="font-size:12px;">Ingresa la cantidad</label>
               </div>
             </div>
             <div class="col padding-right">
               <div class="form-floating grid-right">
-<<<<<<< Updated upstream
+
                 <input type="text" class="form-control" id="total3" id="form-floating " placeholder="Total"
-=======
-                <input type="text" class="form-control" id="total2" id="form-floating " placeholder="Total"
->>>>>>> Stashed changes
                   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Total" disabled>
                 <label for="form-floating" style="font-size:12px;">Total</label>
               </div>
             </div>
           </div>
 
-<<<<<<< Updated upstream
+
           <div class="row justify-content-end mt-3">
             <div class="col-auto total">Total Venta</div>
             <div class="col-auto">
@@ -272,71 +238,11 @@
           <div class="col-auto">
             <input type="text" class="form-control" id="total_tax" id="form-floating " aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-lg" name="Total" disabled>
-=======
-          <div class="row mt-3">
-            <div class="col">
-              <div class="form-floating grid-left">
-                <input type="text" class="form-control" id="producto3" id="form-floating " placeholder="Producto"
-                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Producto1" required>
-                <label for="form-floating" style="font-size:12px;">Ingrese código</label>
-              </div>
-            </div>
-            <div class="col"><button style="font-size:15px;" type="button" class="btn btn-success"
-                onclick="consultarProducto3()">Colsultar Producto</button></div>
-            <div class="col">
-              <div class="form-floating">
-                <input type="text" class="form-control" id="result3" id="form-floating " placeholder="Producto"
-                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Producto1" disabled>
-                <label for="form-floating" style="font-size:12px;">Producto</label>
-              </div>
-            </div>
-            <div class="col">
-              <div class="form-floating">
-                <input type="text" class="form-control" id="value3" id="form-floating " placeholder="Producto"
-                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Producto1" disabled>
-                <label for="form-floating" style="font-size:12px;">Precio Unitario</label>
-              </div>
-            </div>
-            <div class="col">
-              <div class="form-floating">
-                <input type="text" class="form-control" id="quantity3" id="form-floating " placeholder="Cantidad"
-                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Cantidad" required>
-                <label for="form-floating" style="font-size:12px;">Ingresa la cantidad</label>
-              </div>
-            </div>
-            <div class="col padding-right">
-              <div class="form-floating grid-right">
-                <input type="text" class="form-control" id="total3" id="form-floating " placeholder="Total"
-                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Total" disabled>
-                <label for="form-floating" style="font-size:12px;">Total</label>
-              </div>
-            </div>
-          </div>
-
-          <div class="row justify-content-end mt-3">
-            <div class="col-auto total">Total Venta</div>
-            <div class="col-auto">
-              <input type="text" class="form-control" id="total_purchase" id="form-floating "
-                aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="Total" disabled>
-            </div>
->>>>>>> Stashed changes
           </div>
         </div>
 
         <div class="row justify-content-end mt-3">
-<<<<<<< Updated upstream
           <div class="col-auto total">Total Ventas con IVA</div>
-=======
-          <div class="col-auto total">Total IVA</div>
-          <div class="col-auto">
-            <input type="text" class="form-control" id="total_tax" id="form-floating " aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-lg" name="Total" disabled>
-          </div>
-        </div>
-
-        <div class="row justify-content-end mt-3">
-          <div class="col-auto total">Total IVA</div>
->>>>>>> Stashed changes
           <div class="col-auto">
             <input type="text" class="form-control" id="total_tax" id="form-floating " aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-lg" name="Total" disabled>
@@ -345,18 +251,11 @@
 
         <div class="row justify-content-start mt-3">
           <div class="col">
-<<<<<<< Updated upstream
             <button style="font-size:15px;" type="button" class="btn btn-success mr-5" 
               (click)="postVenta()">Confirmar compra</button>
               <button type="button" class="btn btn-warning btn-sm" (click)="reload()" style="font-size:15px;">
                 <i class="fas fa-sync-alt"></i> Recargar pagina
             </button>
-=======
-            <button style="font-size:15px;" type="button" class="btn btn-success mr-5"
-              onclick="consultarProducto1()">Confirmar compra</button>
-            <button style="font-size:15px;" type="button" class="btn btn-danger"
-              onclick="consultarProducto1()">Recargar pagina</button>
->>>>>>> Stashed changes
           </div>
         </div>
       </div>

@@ -10,6 +10,7 @@ public class Consolidado {
 	private String id;
 	private String ciudad;
 	private Long totalventas;
+
 	
 	public Consolidado() {
 
@@ -44,6 +45,6 @@ public class Consolidado {
 	public void setTotalventas(Long totalventas) {
 		this.totalventas = totalventas;
 	}
-	
+
 	
 }

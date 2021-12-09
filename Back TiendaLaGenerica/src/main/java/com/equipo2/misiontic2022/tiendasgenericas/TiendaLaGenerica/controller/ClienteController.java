@@ -127,4 +127,18 @@ public class ClienteController {
 	      return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	    }
 	  }
+	  
+	  @GetMapping("/clientes/cedula/{cedula}")
+		public ResponseEntity<Cliente> getClienteByCedula(@PathVariable("cedula") Integer cedula) {
+			Cliente aux=clienteRepository.findByCedulacliente(cedula).get(0);
+			Optional<Cliente> clienteData =  Optional.of(aux);
+
+			if (clienteData.isPresent()) {
+				return new ResponseEntity<>(clienteData.get(), HttpStatus.OK);
+			} else {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+		}
+	  
+	  
 }
