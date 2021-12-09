@@ -125,7 +125,7 @@ export class VentasComponent implements OnInit {
 
   codigorespuesta: any;
   listadetalleventa = Array();
-  ciudad: any;
+  ciudad: string = '0';
   postVenta() {
     if (this.precioprod1 != null && this.precioprod1 != undefined && this.precioprod1 != "") {
       let aux = {
