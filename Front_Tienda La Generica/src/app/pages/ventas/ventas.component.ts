@@ -80,7 +80,7 @@ export class VentasComponent implements OnInit {
   calcPrecioProd(numproducto: number) {
     switch (numproducto) {
       case 1:
-        this.precioprod1 += this.cant1 * this.product1[0].precioventa;
+        this.precioprod1 = this.cant1 * this.product1[0].precioventa;
         break;
       case 2:
         this.precioprod2 = this.cant2 * this.product2[0].precioventa;
@@ -260,5 +260,8 @@ export class VentasComponent implements OnInit {
       "nombreproducto": ""
     }]
     this.getConsecutivo();
+
+
   }
+
 }
