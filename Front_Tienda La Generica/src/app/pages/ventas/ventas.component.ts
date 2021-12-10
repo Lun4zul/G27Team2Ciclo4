@@ -16,10 +16,16 @@ export class VentasComponent implements OnInit {
   apiURL: string = "http://localhost:8080/api/";
 
   consecutivo !: any;
+  sumatoria: number = 0.0;
 
   getConsecutivo() {
     this.clientehttp.get(this.apiURL + "ventas/consecutivo").subscribe((data) => {
       this.consecutivo = data;
+      if (this.consecutivo == 1){
+        this.consecutivo = this.consecutivo;
+      }else{
+        
+      }
       this.consecutivo++;
       console.log(this.consecutivo);
     }
@@ -166,8 +172,8 @@ export class VentasComponent implements OnInit {
         "codigoVenta": this.consecutivo,
         "detalleventa": this.listadetalleventa,
         "ivaVenta": this.totaliva,
-        "totalVenta": this.totalplusiva,
-        "totalVentaConIva": this.totalventa
+        "totalVenta": this.totalventa,
+        "totalVentaConIva": this.totalplusiva,
       }, {
       observe: 'response'
     }).subscribe(
@@ -200,7 +206,10 @@ export class VentasComponent implements OnInit {
     console.log(this.ciudad)
     console.log(typeof this.ciudad)
     this.clientehttp.post(this.apiURL + "consolidados/agregar/"+this.ciudad, 
-    {},
+    {
+      "ciudad": this.ciudad,
+      "totalventas": this.totalplusiva,
+    },
     {observe:"response"}
     ).subscribe((response: any) => {
 

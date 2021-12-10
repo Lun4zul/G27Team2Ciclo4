@@ -1,46 +1,43 @@
-<app-navbar></app-navbar>
 <div class="content justify-content-center mt-2">
     <div class="row align-items-center">
-        <div class="col-12">
-            <button type="button" class="btn btn-info btn-lg" [routerLink]="'/reportes/listado-clientes'">Listado de Clientes</button>
-            <button type="button" class="btn btn-warning btn-lg" [routerLink]="'/reportes/ventas-xcliente'">Ventas por Cliente
-                Cliente</button>
-            
+        <div class="col-auto">
+            <button type="button" class="btn btn-info btn-lg" [routerLink]="'/reportes/listado-clientes'">
+                Listado de Clientes</button>
+            <button type="button" class="btn btn-warning btn-lg ml-3" [routerLink]="'/reportes/ventas-xcliente'">
+                Ventas por Cliente</button>
         </div>
-   
+    </div>
 
-<div class=" content">
-    <table class="compact nowrap table table-dark table-hover table-responsive-sm
-    table-responsive-lg table-responsive-xxl" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
-    
-        <tr>
-            <th>Cedula</th>
-            <th>Codigo</th>
-            <th>Id</th>
-            <th>Venta</th>
-            <th>Iva</th>
-            <th>VALOR TOTAL</th>
-        </tr>
-      
-        <tbody>
-            <tr *ngFor="let ventas of contenido">
-                <td>{{ventas.cedulaCliente}}</td>
-                <td>{{ventas.codigoVenta}}</td>
-                <td>{{ventas.id}}</td>
-                <td>{{ventas.totalVenta}}</td>
-                <td>{{ventas.ivaVenta}}</td>
-                <td>{{ventas.totalVentaConIva}}</td>
-            </tr>  
-            
-        </tbody>
-      </table>
-      <div class="row justify-content-center mt-2">
-        <div class="column align-items-center pt-5">
-            <h3>Total Ventas $ <input > </h3>
-            
+    <div class="row justify-content-evenly mt-3">
+        <div class="col-auto">
+            <div class=" card">
+                <div class=" card-header">
+                    <h4 class=" card-title"><i class="fas fa-table"></i> Ventas por Clientes</h4>
+                </div>
+                <div class=" card-body">
+                    <div class="container">
+                        <table class="compact nowrap stripe hover" datatable [dtOptions]="dtOptions"
+                            [dtTrigger]="dtTrigger">
+                            <tbody>
+                                <tr *ngFor="let datos of list">
+                                    <td>{{datos}}</td>
+                                    <td>{{datos}}</td>
+                                    <td>${{datos}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+
+    <div class="row justify-content-center mt-2">
+        <div class="col-auto total"><span>TOTAL VENTAS $</span></div>
+        <div class="col-auto">
+            <input type="text" class="form-control vtotal" id="form-floating" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-lg" [(ngModel)]="valortotal" disabled>
+        </div>
     </div>
-   
-</div>
 </div>

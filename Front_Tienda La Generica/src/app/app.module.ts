@@ -33,8 +33,8 @@ import { VentasXClienteComponent } from './pages/reportes/ventas-xcliente/ventas
     ToastrModule.forRoot(),
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,
     DataTablesModule,
+    HttpClientModule,
   ],
   
   declarations: [
