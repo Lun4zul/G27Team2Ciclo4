@@ -11,7 +11,7 @@ export class LeerService {
   content!: any[];
   constructor(private http: HttpClient) { }
 
-  leer(urlapi: string, cedula: string) {
+  leer(urlapi: string, cedula: any) {
     return this.http.get(urlapi + cedula);
   }
 

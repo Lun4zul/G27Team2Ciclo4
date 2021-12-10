@@ -1,11 +1,20 @@
-<div class="content">
-    <div class="row">
+<div class="content justify-content-center mt-2">
+    <div class="row align-items-center">
+        <div class="col-auto">
+            <button type="button" class="btn btn-info btn-lg" [routerLink]="'/reportes/listado-clientes'">Listado de
+                Clientes</button>
+            <button type="button" class="btn btn-warning btn-lg ml-3" [routerLink]="'/reportes/ventas-xcliente'">Ventas
+                por Cliente</button>
+        </div>
+    </div>
+
+    <div class="row justify-content-start mt-4">
         <h2>LISTA DE CLIENTES</h2>
         <div class="row justify-content-center mt-2">
             <div class="col-auto puntero" *ngFor="let dato of contenido">
                 <div class="card mt-2">
                     <img src="https://cdn.pixabay.com/photo/2016/04/15/18/05/computer-1331579_960_720.png"
-                    class="img-fluid" alt="...">
+                        class="img-fluid" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Datos del cliente</h5>
                     </div>
